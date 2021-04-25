@@ -4,7 +4,7 @@ RUN apk update && apk upgrade
 RUN apk add mysql mysql-client openrc
 
 COPY ./srcs/mysql.sh /
-# COPY ./srcs/mysql_data /mnt/
+COPY ./srcs/wordpress.sql /mnt
 
 EXPOSE 3306
 CMD ["sh", "mysql.sh"]
