@@ -1,0 +1,13 @@
+FROM alpine:3.12
+
+RUN apk update && apk upgrade
+RUN apk add wget supervisor libc6-compat
+
+RUN wget https://dl.grafana.com/enterprise/release/grafana-enterprise-7.5.4.linux-amd64.tar.gz
+RUN tar -zxvf grafana-enterprise-7.5.4.linux-amd64.tar.gz
+RUN rm grafana-enterprise-7.5.4.linux-amd64.tar.gz
+COPY srcs/start.sh /
+
+EXPOSE 3000
+
+CMD ["sh", "start.sh"]
