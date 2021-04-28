@@ -11,7 +11,6 @@ COPY srcs/start.sh /
 COPY srcs/datasource.yaml /grafana-7.5.4/conf/provisioning/datasources/
 COPY srcs/providers.yaml /grafana-7.5.4/conf/provisioning/dashboards/
 COPY srcs/services.json /grafana-7.5.4/conf/provisioning/dashboards/
-# COPY srcs/cluster.json /grafana-7.5.4/conf/provisioning/dashboards/
 
 EXPOSE 3000
 
