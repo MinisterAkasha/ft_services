@@ -8,7 +8,7 @@ RUN tar -zxvf telegraf-1.18.1_linux_amd64.tar.gz && rm telegraf-1.18.1_linux_amd
 
 RUN mkdir -p /etc/telegraf/
 RUN mkdir -p /etc/influxdb/
-
+RUN mv /etc/influxdb.conf /etc/influxdb/influxdb.conf
 RUN telegraf-1.18.1/usr/bin/telegraf -sample-config --input-filter docker --output-filter influxdb > /etc/telegraf/telegraf.conf
 
 COPY /srcs/supervisord.conf /etc/supervisord.conf
