@@ -24,7 +24,7 @@
 				"x": 0,
 				"y": 0
 			},
-			"id": 2,
+			"id": 1,
 			"legend": {
 				"alignAsTable": false,
 				"avg": false,
@@ -72,7 +72,7 @@
 						{
 							"type": "fill",
 							"params": [
-								"null"
+								"linear"
 							]
 						}
 					],
@@ -92,7 +92,7 @@
 					],
 					"measurement": "docker_container_cpu",
 					"alias": "NGINX",
-					"query": "SELECT mean(\"usage_total\") FROM \"docker_container_cpu\" WHERE (\"app\" = 'nginx') AND $timeFilter GROUP BY time(1s) fill(null)",
+					"query": "SELECT mean(\"usage_total\") FROM \"docker_container_cpu\" WHERE (\"app\" = 'nginx') AND $timeFilter GROUP BY time(1s) fill(linear)",
 					"rawQuery": false
 				},
 				{
@@ -118,7 +118,7 @@
 						{
 							"type": "fill",
 							"params": [
-								"null"
+								"linear"
 							]
 						}
 					],
@@ -162,7 +162,7 @@
 						{
 							"type": "fill",
 							"params": [
-								"null"
+								"linear"
 							]
 						}
 					],
@@ -206,7 +206,7 @@
 						{
 							"type": "fill",
 							"params": [
-								"null"
+								"linear"
 							]
 						}
 					],
@@ -250,7 +250,7 @@
 						{
 							"type": "fill",
 							"params": [
-								"null"
+								"linear"
 							]
 						}
 					],
@@ -294,7 +294,7 @@
 						{
 							"type": "fill",
 							"params": [
-								"null"
+								"linear"
 							]
 						}
 					],
@@ -314,7 +314,51 @@
 					],
 					"alias": "WordPress",
 					"measurement": "docker_container_cpu"
-				}
+				},
+				{
+					"alias": "FTPS",
+					"groupBy": [
+					  {
+						"params": [
+						  "$__interval"
+						],
+						"type": "time"
+					  },
+					  {
+						"params": [
+						  "linear"
+						],
+						"type": "fill"
+					  }
+					],
+					"hide": false,
+					"measurement": "docker_container_cpu",
+					"orderByTime": "ASC",
+					"policy": "default",
+					"refId": "FTPS",
+					"resultFormat": "time_series",
+					"select": [
+					  [
+						{
+						  "params": [
+							"usage_total"
+						  ],
+						  "type": "field"
+						},
+						{
+						  "params": [],
+						  "type": "mean"
+						}
+					  ]
+					],
+					"tags": [
+					  {
+						"key": "app",
+						"operator": "=",
+						"value": "ftps"
+					  }
+					]
+				  }
 			],
 			"thresholds": [],
 			"timeFrom": null,
@@ -353,7 +397,7 @@
 			]
 		}
 	],
-	"refresh": "",
+	"refresh": "5s",
 	"rows": [],
 	"schemaVersion": 16,
 	"style": "dark",
