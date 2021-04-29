@@ -21,5 +21,3 @@ kubectl apply -f ./srcs/phpMyAdmin/srcs/phpMyAdmin.yaml
 kubectl apply -f ./srcs/Grafana/srcs/Grafana.yaml
 kubectl apply -f ./srcs/Influx/srcs/Influx.yaml
 kubectl apply -f ./srcs/FTPS/srcs/FTPS.yaml
-
-# minikube dashboard
