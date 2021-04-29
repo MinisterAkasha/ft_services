@@ -1,3 +1,1 @@
-adduser useri ; echo "user: 123"
-
-vsftpd
+vsftpd /etc/vsftpd/vsftpd.conf

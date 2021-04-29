@@ -11,8 +11,16 @@ spec:
   type: LoadBalancer
   ports:
     - protocol: TCP
+      name: ftp-cmd
       port: 21
       targetPort: 21
+    - name: ftp-data
+      port: 20
+      targetPort: 20
+    - name: pasv-1
+      protocol: TCP
+      port: 22000
+      targetPort: 22000
 
 ---
 
@@ -37,4 +45,6 @@ spec:
         image: ftps_image
         imagePullPolicy: Never
         ports:
+        - containerPort: 20
         - containerPort: 21
+        - containerPort: 22000
